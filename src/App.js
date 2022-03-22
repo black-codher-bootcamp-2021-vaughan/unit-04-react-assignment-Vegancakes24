@@ -6,7 +6,7 @@ import Product from './components/Product';
 function App() {
 let basket = []
 let items = [...Data1]
-function removeFromBasket() {}
+// function removeFromBasket() {}
 function search() {}
 
 const addToBasket = (id) => {
