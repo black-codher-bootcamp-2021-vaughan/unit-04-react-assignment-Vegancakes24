@@ -1,11 +1,12 @@
 import Product from "./Product";
-const ProductList = ({product, addToBasket, ...props}) => {
+const ProductList = ({product, addToBasket, removeFromBasket,...props}) => {
 
       return product.map((item) => (
-    //    item.trackName + "jellybean"
+   
         <Product
       item = {item}
       addToBasket={addToBasket}
+      removeFromBasket={removeFromBasket}
         />
     ));
         

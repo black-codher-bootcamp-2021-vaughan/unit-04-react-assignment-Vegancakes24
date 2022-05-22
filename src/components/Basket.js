@@ -4,7 +4,8 @@ import Product from './Product';
 import BasketTotal from './BasketTotal';
 import BasketCount from './BasketCount';
 
-const Basket = ({basket,basketCount,basketTotal,...props}) => {
+const Basket = ({basket, basketCount,basketTotal,...props}) => {
+  console.log(basket)
   return (
     <div id="basket">
         <h2>Basket</h2>

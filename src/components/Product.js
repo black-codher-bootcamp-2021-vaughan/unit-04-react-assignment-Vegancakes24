@@ -13,6 +13,7 @@ const Product = ({item, ...props}) => {
             <h2 >£{trackPrice}</h2>  
             <h2 >{trackId}</h2>
             <h2 >{longDescription}</h2>
+            
 
             <div className="buttons">
     {item.inBasket ?
