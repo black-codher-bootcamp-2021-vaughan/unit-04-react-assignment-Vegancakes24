@@ -14,17 +14,6 @@ function App() {
   let originalItems = [...Data1];
   const [items, setItems] = useState(originalItems);
  
-  
-  // function filteredItems(arr, query) {
-  //   return arr.filter(function(el) {
-  //     return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
-
-  //   })}
-
-  //   let newArray = arr.filter(callback(item.title[filteredItems, index[filter, array]]) {
-  //     // return element for newArray, if true
-  //   }[, thisArg]);
-
 
 
   function search(query) {
