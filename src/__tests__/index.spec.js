@@ -34,7 +34,7 @@ describe("Application structure", () => {
     expect(readFile("/src/models/data.json")).toBeTruthy();
   });
 
-  test("/src/pages/About.js found", () => {
-    expect(readFile("/src/pages/About.js")).toBeTruthy();
+  test("/src/components/About.js found", () => {
+    expect(readFile("/src/components/About.js")).toBeTruthy();
   });
 });

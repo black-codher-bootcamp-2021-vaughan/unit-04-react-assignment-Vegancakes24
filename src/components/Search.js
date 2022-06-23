@@ -1,3 +1,4 @@
+import userEvent from "@testing-library/user-event";
 import React from "react";
 
 const propTypes = {};
@@ -21,10 +22,16 @@ const Search = (props) => {
             value={props.term}
             onChange={(e) => props.setTerm(e.target.value)}
           />
+          <ul className="list">
+            {/* {user.trackName().includes(query).map((user) => (
+              <li key={trackkName.id} className="listItem">
+                {user.trackName}
+              </li>))} */}
+          </ul>
         </label>
-        <button type="submit" value="Search" />
+        <button type="submit" value="Search" >Search</button>
       </form>
-      <h1>{props.term && "Searching for terms:" + props.term}</h1>
+      <h1>{props.term && "Suggested For You" + props.term}</h1>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { Router } from 'react-router-dom'
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { createMemoryHistory } from 'history';
-import About from '../pages/About';
+import About from '../components/About';
 
 describe("Components load as expected", () => {
   test('About page content', () => {

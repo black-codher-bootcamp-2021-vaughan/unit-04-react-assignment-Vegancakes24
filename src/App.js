@@ -1,8 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 import Data1 from "./models/data.json";
 import ProductList from "./components/ProductList";
-import Product from "./components/Product";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import About from "./components/About";
@@ -10,21 +9,47 @@ import Basket from "./components/Basket";
 import Search from "./components/Search";
 
 function App() {
-  const [basket, setBasket] = React.useState([]);
-  let items = [...Data1];
-  function search() {
-    // const []
-    //implement here function to search from iTunes
-    //copy example from Bookstore
-    //not important but remind to use the itunes AP
-    // pass functioonto Search component props
+  const [basket, setBasket] = useState([]);
+  const [keyword, setKeyword] = useState();
+  let originalItems = [...Data1];
+  const [items, setItems] = useState(originalItems);
+ 
+  
+  // function filteredItems(arr, query) {
+  //   return arr.filter(function(el) {
+  //     return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
+
+  //   })}
+
+  //   let newArray = arr.filter(callback(item.title[filteredItems, index[filter, array]]) {
+  //     // return element for newArray, if true
+  //   }[, thisArg]);
+
+
+
+  function search(query) {
+    const regExQuery =new RegExp(query)
+   const filteredItems = items.filter(item => item.trackName.match(regExQuery))
+
+   if(filteredItems.length ===0 ) {
+     setItems(items)
+  
+   } else {setItems(filteredItems)}
+
+    //declare an new variable called filtered items and assign a filtered array of items by Keyword(title)
+  
+    // dont use find but use filter and look in MDN on array filter - items.filter and inside that create my filtering conndition 
+    //item.title === keyword
+    //if filtered items is empty use setItems with items else do line 23
+     // use setItems and pass to it the filtered items
+    
   }
 
   const addToBasket = (id) => {
-    const foundItem = Data1.find((item) => item.trackId === id)
-    foundItem.inBasket = true
-    const newBasket = [...basket, foundItem]
-   
+    const foundItem = Data1.find((item) => item.trackId === id);
+    foundItem.inBasket = true;
+    const newBasket = [...basket, foundItem];
+
     setBasket(newBasket);
     console.log(basket);
   };
@@ -33,7 +58,7 @@ function App() {
 
     setBasket(newBasket);
   };
-  //this function is wrong. Need to use the same pattern as 'add to basket'
+  const basketTotal = 123;
 
   return (
     <Router>
@@ -45,21 +70,28 @@ function App() {
         </Route>
 
         <Route path="/basket">
-          <Basket basket={basket} basketCount={basket.length} removeFromBasket = {removeFromBasket} />
+          <Basket
+            basket={basket}
+            basketCount={basket.length}
+            removeFromBasket={removeFromBasket}
+            
+          />
         </Route>
         <Route path="/">
-          <Search search={search} term={"/"} />
-          (
+          <Search search={search} term={keyword} setTerm={setKeyword} />
+          
           <ProductList
-            product={items}
+            products={items}
             addToBasket={addToBasket}
             removeFromBasket={removeFromBasket}
           />
-          )
+          
         </Route>
       </Switch>
     </Router>
   );
+
+
 }
 
 export default App;

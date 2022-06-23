@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 
 const Product = ({item, ...props}) => {
 
-    const {trackId, artworkUrl100, trackName, longDescription, trackPrice} = item
+    const {kind, trackId, artworkUrl100, trackName, longDescription, trackPrice, removeFromBasket} = item
 
     return (
         <section className="product">
             <img src={artworkUrl100} alt={trackName && trackName.length>0?trackName:`Item id=${trackId}`}/>
             <section>
+            <h2 >{kind}</h2>    
             <h2 >{trackName}</h2>
             <h2 >£{trackPrice}</h2>  
             <h2 >{trackId}</h2>
             <h2 >{longDescription}</h2>
+            <h2 >{removeFromBasket}</h2>
             
 
             <div className="buttons">

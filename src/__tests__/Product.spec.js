@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Product from '../src/components/Product';
-import data from '../src/models/data.json';
+import Product from '../components/Product';
+import data from '../models/data.json';
 
 describe("Product functionality", () => {
   test('calls addToBasket when clicked', () => {

@@ -4,8 +4,9 @@ import Product from './Product';
 import BasketTotal from './BasketTotal';
 import BasketCount from './BasketCount';
 
-const Basket = ({basket, basketCount,basketTotal,...props}) => {
+const Basket = ({basket, basketCount,...props}) => {
   console.log(basket)
+  const basketTotal = basket.reduce((previous, current)=> previous + current.trackPrice, 0)
   return (
     <div id="basket">
         <h2>Basket</h2>
@@ -16,9 +17,12 @@ const Basket = ({basket, basketCount,basketTotal,...props}) => {
           <div className="empty">Sorry, no items in basket...</div>)
         }
         <BasketTotal basketTotal={basketTotal}/>
+
+      
     </div>
   );
 }
+
 
 Basket.propTypes = {
   basket: PropTypes.array.isRequired
