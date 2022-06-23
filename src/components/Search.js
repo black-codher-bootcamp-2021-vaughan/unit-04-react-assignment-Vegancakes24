@@ -23,10 +23,7 @@ const Search = (props) => {
             onChange={(e) => props.setTerm(e.target.value)}
           />
           <ul className="list">
-            {/* {user.trackName().includes(query).map((user) => (
-              <li key={trackkName.id} className="listItem">
-                {user.trackName}
-              </li>))} */}
+           
           </ul>
         </label>
         <button type="submit" value="Search" >Search</button>
